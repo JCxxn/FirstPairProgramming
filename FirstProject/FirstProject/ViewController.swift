@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     
     // 연산버튼이 눌리기전까지 눌린숫자를 담는 변수
     var firstPressedNum: [String] = []
-    
     // 연산버튼이 누른 후부터 = 눌리기 전까지 눌린숫자를 담는 변수
     var secondPressedNum: [String] = []
     // 연산기호 저장
@@ -56,21 +55,49 @@ class ViewController: UIViewController {
         // 연산자 + 할 것이라는 것을 저장
         
         // for문으로 firstPressedNum 하나씩 꺼내서 문자열 만들고 숫자로 변환
-        
+        for number in firstPressedNum{
+            num1 += Int(number) ?? 0
+            num1 *= 10
+        }
+        num1 /= 10
 //        num1 = Int()
         operation = "+"
+        formulaString.append(" + ")
+        resultValue.text = formulaString
+        print("\(num1)")
     }
   
     @IBAction func pressMinusButton(_ sender: UIButton) {
         // firstPressedNum 담겨있는 것을 숫자로 변환
         // 연산자 - 할 것이라는 것을 저장
+        for number in firstPressedNum{
+            num1 += Int(number) ?? 0
+            num1 *= 10
+        }
+        num1 /= 10
         operation = "-"
+        formulaString.append(" - ")
+        resultValue.text = formulaString
+        print("\(num1)")
     }
    
     @IBAction func pressEqualButton(_ sender: UIButton) {
         // secondPressedNum 담겨있는 것을 숫자로 변환
         // 저장된 연산자로 계산하고 계산식 레이블에 출력
+        for number in secondPressedNum{
+            num2 += Int(number) ?? 0
+            num2 *= 10
+        }
+        num2 /= 10
+        print("\(num2)")
         
+        if operation == "+"{
+            resultNumber = num1 + num2
+        } else {
+            resultNumber = num1 - num2
+        }
+        formulaString.append(" = \(resultNumber)")
+        resultValue.text = formulaString
     }
    
     @IBAction func pressAcButton(_ sender: UIButton) {
@@ -80,6 +107,10 @@ class ViewController: UIViewController {
         
         // 계산식에 0 출력
         resultValue.text = "0"
+        operation = ""
+        formulaString = ""
+        num1 = 0
+        num2 = 0
     }
     
     
