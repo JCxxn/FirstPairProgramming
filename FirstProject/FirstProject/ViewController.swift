@@ -20,7 +20,11 @@ class ViewController: UIViewController {
     var operation: String = ""
     // 결과 값 저장
     var resultNumber: Int = 0
+    // 계산식 문자열 저장할 변수
+    var formulaString: String = ""
     
+    var num1: Int = 0
+    var num2: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,17 +44,20 @@ class ViewController: UIViewController {
             secondPressedNum.append(String(sender.tag))
         } else {
             firstPressedNum.append(String(sender.tag))
-            
         }
         
-        resultValue.text = String(sender.tag)
-        
+        formulaString.append(String(sender.tag))
+        resultValue.text = formulaString
     }
   
 
     @IBAction func pressPlusButton(_ sender: UIButton) {
         // firstPressedNum 담겨있는 것을 숫자로 변환
         // 연산자 + 할 것이라는 것을 저장
+        
+        // for문으로 firstPressedNum 하나씩 꺼내서 문자열 만들고 숫자로 변환
+        
+//        num1 = Int()
         operation = "+"
     }
   
