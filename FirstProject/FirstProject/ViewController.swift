@@ -8,18 +8,31 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var resultValue: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
-    @IBAction func Num1(_ sender: Any) {
+    
+    @IBAction func Num1(_ sender: UIButton) {
         
         
         
+    }
+  
+    @IBAction func pressPlusButton(_ sender: Any) {
+    }
+  
+    @IBAction func pressMinusButton(_ sender: Any) {
+    }
+   
+    @IBAction func pressEqualButton(_ sender: Any) {
+    }
+   
+    @IBAction func pressAcButton(_ sender: Any) {
     }
     
     
