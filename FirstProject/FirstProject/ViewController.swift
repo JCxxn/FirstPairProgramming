@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     // 결과 값 저장
     var resultNumber: Int = 0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +33,16 @@ class ViewController: UIViewController {
         // firstPressedNum,secondPressedNum 채워야 함
         // 계산식 레이블에 출력
         // 변수에 숫자 저장
-        firstPressedNum.append(String(sender.tag))
+        
+        // 연산자 - 또는 + 가 있으면 두번째수
+        // 아니면 첫번째수가 저장된다.
+        if operation == "-" || operation == "+" {
+            secondPressedNum.append(String(sender.tag))
+        } else {
+            firstPressedNum.append(String(sender.tag))
+            
+        }
+        
         resultValue.text = String(sender.tag)
         
     }
